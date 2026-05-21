@@ -17,12 +17,12 @@ export default function Hero() {
   const letterSpacing = useTransform(
     scrollYProgress,
     [0, 1],
-    ['0.42em', '0.02em']
+    ['0.18em', '0.02em']
   );
 
   return (
-    <section ref={ref} className="relative h-[190vh] bg-white">
-      <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
+    <section ref={ref} className="relative min-h-screen overflow-hidden bg-white">
+      <div className="flex min-h-screen items-center justify-center px-6 pt-20">
         <motion.h1
           style={{
             scale,
@@ -30,7 +30,7 @@ export default function Hero() {
             letterSpacing,
             transformOrigin: 'center center',
           }}
-          className="relative z-10 origin-center text-center text-[46px] font-light uppercase leading-none text-black md:text-[120px]"
+          className="relative z-10 origin-center text-center text-[62px] font-extralight uppercase leading-none text-black md:text-[120px]"
         >
           {artist.name}
         </motion.h1>

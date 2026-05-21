@@ -12,22 +12,27 @@ export default function Home() {
       <GrainOverlay />
       <Header />
 
+      {/* HERO */}
       <section className="h-screen snap-start overflow-hidden">
         <Hero />
       </section>
 
+      {/* ARTIST INTRO */}
       <section className="h-screen snap-start overflow-hidden">
         <ArtistIntro />
       </section>
 
-      <section className="h-screen snap-start overflow-hidden">
+      {/* DISCOGRAPHY - allowed to grow */}
+      <section className="min-h-screen snap-start overflow-visible">
         <Discography />
       </section>
 
+      {/* MIXTAPES */}
       <section className="h-screen snap-start overflow-hidden">
         <HomeMixtapes />
       </section>
 
+      {/* CONNECT */}
       <section className="h-screen snap-start overflow-hidden">
         <Connect />
       </section>
