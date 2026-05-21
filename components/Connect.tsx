@@ -8,31 +8,32 @@ import {
   FaLinkedinIn,
   FaGithub,
 } from 'react-icons/fa6';
+import { artist, socials } from '@/data/siteContent';
 
-const socials = [
+const socialLinks = [
   {
     name: 'Instagram',
-    href: 'https://www.instagram.com/shubhampawar_ig',
+    href: socials.instagram,
     icon: FaInstagram,
   },
   {
     name: 'YouTube',
-    href: 'https://www.youtube.com/@shubhampawarr',
+    href: socials.youtube,
     icon: FaYoutube,
   },
   {
     name: 'X',
-    href: 'https://x.com/shubhampawar_ai',
+    href: socials.twitter,
     icon: FaXTwitter,
   },
   {
     name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/shubham-pawar-34b43a23a/',
+    href: socials.linkedin,
     icon: FaLinkedinIn,
   },
   {
     name: 'GitHub',
-    href: 'https://github.com/shubhampawarr',
+    href: socials.github,
     icon: FaGithub,
   },
 ];
@@ -43,18 +44,16 @@ export default function Connect() {
       id="connect"
       className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white px-5 py-24 text-center md:h-screen md:px-6 md:py-20"
     >
-      <div className="absolute inset-x-0 top-[12%] bottom-[5%] mx-auto w-[720px] max-w-[90vw] opacity-[0.12] bg-[radial-gradient(circle,#000_1px,transparent_1px)] [background-size:15px_15px]" />
-
       <SectionReveal className="relative z-10 flex flex-col items-center">
         <h2 className="text-[42px] font-light lowercase tracking-[0.28em] text-black md:text-[72px] md:tracking-[0.38em]">
           connect
         </h2>
 
         <a
-          href="mailto:shuubhaampawar@gmail.com"
+          href={`mailto:${artist.email}`}
           className="mt-5 text-[12px] font-semibold tracking-[0.12em] text-black/80 transition hover:text-black md:text-[15px] md:tracking-[0.22em]"
         >
-          shuubhaampawar@gmail.com
+          {artist.email}
         </a>
 
         <p className="mt-8 text-[12px] font-semibold uppercase tracking-[0.3em] text-black/80 md:text-[13px] md:tracking-[0.38em]">
@@ -62,7 +61,7 @@ export default function Connect() {
         </p>
 
         <div className="mt-7 flex flex-wrap items-center justify-center gap-7 text-[26px] text-black md:gap-10 md:text-[30px]">
-          {socials.map((social) => {
+          {socialLinks.map((social) => {
             const Icon = social.icon;
 
             return (
@@ -90,22 +89,26 @@ export default function Connect() {
 
           <div className="absolute flex h-14 w-14 items-center justify-center rounded-full border-[8px] border-black bg-white md:h-16 md:w-16 md:border-[10px]">
             <span className="text-[10px] font-semibold tracking-[0.2em] md:text-[12px]">
-              SP
+              {artist.name
+                .split(' ')
+                .map((word) => word[0])
+                .join('')
+                .slice(0, 2)}
             </span>
           </div>
         </div>
 
         <div className="mt-8 flex items-center justify-center gap-6 text-[9px] font-semibold uppercase tracking-[0.24em] text-black/60 md:gap-10 md:text-[10px] md:tracking-[0.34em]">
-          <a href="#music" className="transition hover:text-black">
+          <a href="/music" className="transition hover:text-black">
             Identity
           </a>
 
-          <a href="#mixtapes" className="transition hover:text-black">
+          <a href="/discography" className="transition hover:text-black">
             Work
           </a>
 
           <a
-            href="mailto:shuubhaampawar@gmail.com"
+            href={`mailto:${artist.email}`}
             className="transition hover:text-black"
           >
             Contact

@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
+const noto = Noto_Sans({
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: "Shubham",
-  description: "Minimal creative portfolio website.",
+  description: "Minimal creative artist website.",
 };
 
 export default function RootLayout({
@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={outfit.className}>{children}</body>
+      <body className={noto.className}>{children}</body>
     </html>
   );
 }
