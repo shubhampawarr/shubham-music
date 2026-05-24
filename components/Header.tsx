@@ -23,13 +23,10 @@ const navItems = [
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const isHomePage = pathname === '/';
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    document.body.style.overflow = open ? 'hidden' : '';
 
     return () => {
       document.body.style.overflow = '';
@@ -38,7 +35,6 @@ export default function Header() {
 
   return (
     <>
-      {/* HEADER */}
       <motion.header
         initial={{ opacity: 0, y: -18 }}
         animate={{ opacity: 1, y: 0 }}
@@ -46,7 +42,6 @@ export default function Header() {
         className="fixed left-0 top-0 z-50 w-full bg-white/80 backdrop-blur-xl"
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:justify-center md:px-8 md:py-8">
-          {/* MOBILE LOGO */}
           <Link
             href="/"
             className="text-[16px] font-light uppercase tracking-[0.38em] text-black md:hidden"
@@ -54,7 +49,6 @@ export default function Header() {
             {artist.name}
           </Link>
 
-          {/* HAMBURGER */}
           <button
             type="button"
             onClick={() => setOpen(true)}
@@ -64,8 +58,16 @@ export default function Header() {
             <span className="ml-1 h-0 w-0 border-y-[7px] border-l-[10px] border-y-transparent border-l-white" />
           </button>
 
-          {/* DESKTOP NAV */}
           <div className="hidden items-center justify-center gap-10 md:flex">
+            {!isHomePage && (
+              <Link
+                href="/"
+                className="text-[15px] lowercase tracking-[0.34em] text-neutral-500 transition hover:text-black"
+              >
+                home
+              </Link>
+            )}
+
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -83,10 +85,8 @@ export default function Header() {
         </nav>
       </motion.header>
 
-      {/* MOBILE MENU */}
       {open && (
         <div className="fixed inset-0 z-[9999] flex h-screen w-screen flex-col bg-black text-white md:hidden">
-          {/* TOP */}
           <div className="flex items-center justify-between px-7 pt-7">
             <h2 className="text-[22px] font-light uppercase tracking-[0.38em]">
               {artist.name}
@@ -102,15 +102,16 @@ export default function Header() {
             </button>
           </div>
 
-          {/* NAV LINKS */}
           <div className="flex flex-1 flex-col items-center justify-center gap-9">
-            <Link
-              href="/"
-              onClick={() => setOpen(false)}
-              className="text-[18px] font-semibold lowercase tracking-[0.34em] text-white"
-            >
-              home
-            </Link>
+            {!isHomePage && (
+              <Link
+                href="/"
+                onClick={() => setOpen(false)}
+                className="text-[18px] font-semibold lowercase tracking-[0.34em] text-white"
+              >
+                home
+              </Link>
+            )}
 
             {navItems.map((item) => (
               <Link
@@ -124,7 +125,6 @@ export default function Header() {
             ))}
           </div>
 
-          {/* BOTTOM SOCIALS */}
           <div className="flex items-center justify-center gap-14 pb-12 text-[28px] text-white">
             <a
               href={socials.instagram}
