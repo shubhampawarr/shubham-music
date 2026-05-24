@@ -12,16 +12,16 @@ export default function ArtistIntro() {
       {/* BLACK LINE OVERLAPPING PHOTO */}
       <div className="absolute bottom-0 left-0 z-[50] h-[10px] w-full bg-black" />
 
-      <SectionReveal className="relative z-10 flex h-full w-full flex-col items-center justify-between pt-24 pb-0 md:grid md:grid-cols-[0.95fr_0.8fr_1.15fr] md:items-end md:pt-0">
+      <SectionReveal className="relative z-10 flex h-full w-full flex-col items-center justify-between pt-24 pb-0 md:grid md:grid-cols-[0.95fr_0.8fr_1.15fr] md:items-center md:pt-0">
         {/* NAME - HIDDEN ON MOBILE */}
-        <div className="order-1 hidden w-full justify-start md:order-1 md:flex md:justify-start md:pb-[28vh]">
-          <h2 className="text-[78px] font-light uppercase leading-none tracking-[0.34em] text-black">
+        <div className="order-1 hidden w-full justify-start md:order-1 md:flex md:justify-start">
+          <h2 className="text-[34px] font-semibold uppercase leading-none tracking-[0.1em] text-black md:text-[46px] md:tracking-[0.12em]">
             {artist.name}
           </h2>
         </div>
 
         {/* TEXT */}
-        <div className="order-2 mt-2 flex justify-center md:order-3 md:mt-0 md:justify-end md:pb-[9vh]">
+        <div className="order-2 mt-2 flex justify-center md:order-3 md:mt-0 md:justify-end">
           <p className="max-w-[320px] text-center text-[13px] leading-7 text-neutral-800 md:max-w-[520px] md:text-left md:text-[22px] md:leading-[1.65]">
             {expandedBio}
           </p>
