@@ -13,7 +13,7 @@ export default function Hero() {
         className="relative z-10 flex items-center justify-center"
       >
         {/* SHU */}
-        <span className="text-[28px] font-light uppercase tracking-[0.05em] text-black md:text-[58px] md:tracking-[0.06em]">
+        <span className="text-[36px] font-light uppercase tracking-[0.05em] text-black md:text-[58px] md:tracking-[0.06em]">
           SHU
         </span>
 
@@ -21,11 +21,11 @@ export default function Hero() {
         <img
           src="/images/shubham-sticker.jpeg"
           alt={artist.name}
-          className="-mx-1 h-[88px] w-auto object-contain md:-mx-1 md:h-[150px]"
+          className="-mx-1 h-[108px] w-auto object-contain md:-mx-1 md:h-[150px]"
         />
 
         {/* HAM */}
-        <span className="text-[28px] font-light uppercase tracking-[0.05em] text-black md:text-[58px] md:tracking-[0.06em]">
+        <span className="text-[36px] font-light uppercase tracking-[0.05em] text-black md:text-[58px] md:tracking-[0.06em]">
           HAM
         </span>
       </motion.div>
