@@ -9,13 +9,13 @@ export default function ArtistIntro() {
       id="music"
       className="relative h-screen overflow-hidden bg-white px-6 text-black md:px-10"
     >
-      {/* BLACK FLOOR LINE */}
-      <div className="absolute bottom-0 left-0 z-[5] h-[10px] w-full bg-black" />
+      {/* BLACK LINE OVERLAPPING PHOTO */}
+      <div className="absolute bottom-0 left-0 z-[50] h-[10px] w-full bg-black" />
 
       <SectionReveal className="relative z-10 flex h-full w-full flex-col items-center justify-between pt-24 pb-0 md:grid md:grid-cols-[0.95fr_0.8fr_1.15fr] md:items-end md:pt-0">
-        {/* NAME */}
-        <div className="order-1 flex w-full justify-start md:order-1 md:justify-start md:pb-[28vh]">
-          <h2 className="text-[18px] font-light uppercase leading-none tracking-[0.42em] text-black md:text-[78px] md:tracking-[0.34em]">
+        {/* NAME - HIDDEN ON MOBILE */}
+        <div className="order-1 hidden w-full justify-start md:order-1 md:flex md:justify-start md:pb-[28vh]">
+          <h2 className="text-[78px] font-light uppercase leading-none tracking-[0.34em] text-black">
             {artist.name}
           </h2>
         </div>
@@ -32,7 +32,7 @@ export default function ArtistIntro() {
           <img
             src={artist.image}
             alt={artist.name}
-            className="relative z-20 h-[330px] w-auto translate-y-[10px] object-contain grayscale md:h-[560px] md:translate-y-[4px]"
+            className="relative z-20 h-[330px] w-auto object-contain grayscale md:h-[560px] md:translate-y-[4px]"
           />
         </div>
       </SectionReveal>

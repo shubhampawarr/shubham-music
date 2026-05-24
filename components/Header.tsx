@@ -4,7 +4,14 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { artist } from '@/data/siteContent';
+
+import {
+  FaInstagram,
+  FaYoutube,
+  FaXTwitter,
+} from 'react-icons/fa6';
+
+import { artist, socials } from '@/data/siteContent';
 
 const navItems = [
   { label: 'music', href: '/music' },
@@ -20,34 +27,34 @@ export default function Header() {
   useEffect(() => {
     if (open) {
       document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
     }
 
     return () => {
       document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
     };
   }, [open]);
 
   return (
     <>
+      {/* HEADER */}
       <motion.header
         initial={{ opacity: 0, y: -18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="fixed left-0 top-0 z-50 w-full bg-white/80 backdrop-blur-xl"
       >
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-8 py-5 md:justify-center md:py-8">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:justify-center md:px-8 md:py-8">
+          {/* MOBILE LOGO */}
           <Link
             href="/"
-            className="text-[16px] font-light uppercase tracking-[0.42em] text-black md:hidden"
+            className="text-[16px] font-light uppercase tracking-[0.38em] text-black md:hidden"
           >
             {artist.name}
           </Link>
 
+          {/* HAMBURGER */}
           <button
             type="button"
             onClick={() => setOpen(true)}
@@ -57,21 +64,17 @@ export default function Header() {
             <span className="ml-1 h-0 w-0 border-y-[7px] border-l-[10px] border-y-transparent border-l-white" />
           </button>
 
+          {/* DESKTOP NAV */}
           <div className="hidden items-center justify-center gap-10 md:flex">
-            {pathname !== '/' && (
-              <Link
-                href="/"
-                className="text-[15px] font-light lowercase tracking-[0.42em] text-neutral-500 transition hover:text-black"
-              >
-                home
-              </Link>
-            )}
-
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-[15px] font-light lowercase tracking-[0.42em] text-neutral-500 transition hover:text-black"
+                className={`text-[15px] lowercase tracking-[0.34em] transition ${
+                  pathname === item.href
+                    ? 'text-black'
+                    : 'text-neutral-500 hover:text-black'
+                }`}
               >
                 {item.label}
               </Link>
@@ -80,22 +83,31 @@ export default function Header() {
         </nav>
       </motion.header>
 
+      {/* MOBILE MENU */}
       {open && (
-        <div className="fixed left-0 top-0 z-[9999] flex h-[100dvh] w-screen flex-col items-center justify-center overflow-hidden bg-white text-black md:hidden">
-          <button
-            type="button"
-            onClick={() => setOpen(false)}
-            className="absolute right-8 top-7 text-[28px] font-light"
-            aria-label="Close menu"
-          >
-            ×
-          </button>
+        <div className="fixed inset-0 z-[9999] flex h-screen w-screen flex-col bg-black text-white md:hidden">
+          {/* TOP */}
+          <div className="flex items-center justify-between px-7 pt-7">
+            <h2 className="text-[22px] font-light uppercase tracking-[0.38em]">
+              {artist.name}
+            </h2>
 
-          <div className="flex flex-col items-center justify-center gap-8">
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              className="text-[34px] font-light leading-none text-white"
+              aria-label="Close menu"
+            >
+              ×
+            </button>
+          </div>
+
+          {/* NAV LINKS */}
+          <div className="flex flex-1 flex-col items-center justify-center gap-9">
             <Link
               href="/"
               onClick={() => setOpen(false)}
-              className="text-[18px] lowercase tracking-[0.42em]"
+              className="text-[18px] font-semibold lowercase tracking-[0.34em] text-white"
             >
               home
             </Link>
@@ -105,11 +117,38 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="text-[18px] lowercase tracking-[0.42em]"
+                className="text-[18px] font-semibold lowercase tracking-[0.34em] text-white"
               >
                 {item.label}
               </Link>
             ))}
+          </div>
+
+          {/* BOTTOM SOCIALS */}
+          <div className="flex items-center justify-center gap-14 pb-12 text-[28px] text-white">
+            <a
+              href={socials.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram />
+            </a>
+
+            <a
+              href={socials.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaYoutube />
+            </a>
+
+            <a
+              href={socials.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaXTwitter />
+            </a>
           </div>
         </div>
       )}
