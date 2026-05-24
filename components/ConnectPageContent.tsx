@@ -5,6 +5,7 @@ import GrainOverlay from '@/components/GrainOverlay';
 import SectionReveal from '@/components/SectionReveal';
 import PageFooter from '@/components/PageFooter';
 import { artist, socials } from '@/data/siteContent';
+
 import {
   FaInstagram,
   FaYoutube,
@@ -29,14 +30,17 @@ export default function ConnectPageContent() {
 
       <section className="relative flex min-h-screen items-center justify-center px-6 py-24">
         <SectionReveal className="relative z-10 flex w-full max-w-[440px] flex-col items-center text-center">
+          {/* TITLE */}
           <h1 className="text-[42px] font-light lowercase tracking-[0.32em] md:text-[62px]">
             connect
           </h1>
 
+          {/* STAY TUNED */}
           <p className="mt-7 text-[11px] font-semibold uppercase tracking-[0.34em] text-black/70">
             STAY TUNED
           </p>
 
+          {/* SOCIAL ICONS */}
           <div className="mt-6 flex justify-center gap-7 text-[22px]">
             {socialLinks.map((social) => {
               const Icon = social.icon;
@@ -56,6 +60,7 @@ export default function ConnectPageContent() {
             })}
           </div>
 
+          {/* FORM */}
           <form className="mt-12 w-full space-y-5 text-left">
             <div>
               <label className="mb-2 block text-[9px] font-semibold uppercase tracking-[0.34em] text-black/45">
@@ -115,12 +120,10 @@ export default function ConnectPageContent() {
             </button>
           </form>
 
-          <a
-            href={`mailto:${artist.email}`}
-            className="mt-14 block text-[10px] font-semibold uppercase tracking-[0.34em] text-black/45 hover:text-black"
-          >
+          {/* EMAIL TEXT ONLY */}
+          <p className="mt-14 text-[10px] font-semibold uppercase tracking-[0.34em] text-black/45">
             {artist.email}
-          </a>
+          </p>
         </SectionReveal>
       </section>
 
