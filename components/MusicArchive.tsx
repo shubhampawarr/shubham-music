@@ -13,7 +13,7 @@ export default function MusicArchive() {
   return (
     <section className="relative min-h-screen bg-white px-6 pb-24 pt-44 text-black">
       <SectionReveal className="relative z-10 mx-auto max-w-[620px]">
-        <h1 className="mb-16 text-center text-[42px] font-light lowercase tracking-[0.36em] md:text-[72px]">
+        <h1 className="mb-16 px-2 text-center text-[34px] font-light lowercase tracking-[0.18em] md:text-[72px] md:tracking-[0.36em]">
           discography
         </h1>
 
@@ -30,7 +30,7 @@ export default function MusicArchive() {
                   }
                   className="block w-full text-left transition duration-500 hover:translate-x-2 hover:opacity-60"
                 >
-                  <h2 className="text-[28px] font-light uppercase tracking-[0.16em] text-black/65 md:text-[36px]">
+                  <h2 className="break-words text-[24px] font-light uppercase tracking-[0.08em] text-black/65 md:text-[36px] md:tracking-[0.16em]">
                     {release.title}
                   </h2>
 
